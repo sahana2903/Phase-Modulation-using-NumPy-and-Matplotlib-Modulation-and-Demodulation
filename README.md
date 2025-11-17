@@ -52,13 +52,46 @@ o Apply the PM modulation formula to obtain the modulated signal.
  
 o Use Matplotlib to plot the message signal, carrier signal, and phase-modulated signal.
 
+# PROGRAM :
+```
+import numpy as np 
+import matplotlib.pyplot as plt 
+Ac = 2 
+fc = 7000 
+Am = 5 
+fm = 800 
+fs = 8000 
+t = np.arange(0, 2/fm, 1/fs) 
+Wm = 2 * np.pi * fm 
+Wc = 2 * np.pi * fc 
+Em = Am * np.sin(Wm * t) 
+Ec = Ac * np.sin(Wc * t) 
+Edsbsc = ((Am / 2) * np.cos((Wc - Wm) * t)) - ((Am / 2) * np.cos((Wc + Wm) * t)) 
+plt.figure(figsize=(10, 6)) 
+plt.subplot(3, 1, 1) 
+plt.plot(t, Em) 
+plt.grid() 
+plt.subplot(3, 1, 2) 
+plt.plot(t, Ec) 
+plt.grid() 
+plt.subplot(3, 1, 3) 
+plt.plot(t, Edsbsc) 
+plt.grid() 
+plt.tight_layout() 
+plt.show()
+```
+# TABULATION :
+<img width="1040" height="1094" alt="image" src="https://github.com/user-attachments/assets/9c324a2f-f172-4065-98af-7877bd37e3b3" />
 
-__Output__:
+# CALCULATION :
+<img width="955" height="1280" alt="image" src="https://github.com/user-attachments/assets/0832dca8-5001-443e-b776-ac048be556cc" />
 
+# Output :
+<img width="645" height="488" alt="image" src="https://github.com/user-attachments/assets/38aeff15-cb47-421f-89a1-c09c758f55d0" />
 
+# Result :
+The message signal, carrier signal, and phase-modulated (PM) signal will be displayed in separate plots. The modulated signal will show phase variations corresponding to the amplitude of the message signal. 
 
-
-__Result__:
 
 
 
